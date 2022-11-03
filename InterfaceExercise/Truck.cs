@@ -21,6 +21,7 @@ namespace InterfaceExercise
         public int NumberOfWheels { get; set; }
         public string Origin { get; set; }
         public bool RunsOfGasoline { get; set; }
+        public int Validation { get; set; } = 3;
         public int Year { get; set; }
     }
 }

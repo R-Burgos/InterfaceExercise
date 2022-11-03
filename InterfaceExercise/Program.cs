@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
+using InterfaceExercise;
 
 namespace InterfaceExercise
 {
@@ -86,9 +89,61 @@ namespace InterfaceExercise
                 Year = 2020
             };
 
-            Console.WriteLine("I have three different vehicles to present information on. Please choose 1-3");
-            var userInput = Console.ReadLine();
-            bool condition;
+            var vehiclesList = new List<IVehicle>();
+            vehiclesList.Add(car1);
+            vehiclesList.Add(suv1);
+            vehiclesList.Add(truck1);  
+
+            Console.WriteLine("     Please reveiw the following vehicles.");
+            Console.WriteLine("X-------------------------------------------------X\n");
+
+            for (int i = 0; i < vehiclesList.Count; i++)
+            {
+                if (vehiclesList[i].Validation == 1)
+                {
+                    //IVehicle
+                    Console.WriteLine($"This is a {vehiclesList[i].Year} {vehiclesList[i].Make} {vehiclesList[i].Model}");
+                    Console.WriteLine($"It is {vehiclesList[i].RunsOfGasoline} that this vehicle gets {vehiclesList[i].Mpg}MPG.");
+                    Console.WriteLine($"It has {vehiclesList[i].NumberOfDoors} doors and {vehiclesList[i].NumberOfWheels} wheels.");
+                    //Car Class
+                    Console.WriteLine($"It is {car1.Trunk} that this vehicle has a trunk.");
+                    Console.WriteLine($"It is also {car1.LowGroundClearance} that this vehicle has low ground clearance.");
+                    //ICompany
+                    Console.WriteLine($"It is {car1.Logo} that this vehicle was made in {car1.Origin}.");
+                    
+                    Console.WriteLine("X-------------------------------------------------X\n");
+                }
+                if (vehiclesList[i].Validation == 2)
+                {
+                    //IVehicle
+                    Console.WriteLine($"This is a {vehiclesList[i].Year} {vehiclesList[i].Make} {vehiclesList[i].Model}");
+                    Console.WriteLine($"It is {vehiclesList[i].RunsOfGasoline} that this vehicle gets {vehiclesList[i].Mpg}MPG.");
+                    Console.WriteLine($"It has {vehiclesList[i].NumberOfDoors} doors and {vehiclesList[i].NumberOfWheels} wheels.");
+                    //SUV Class
+                    Console.WriteLine($"It is {suv1.CargoHold} that this vehicle has cargo space.");
+                    Console.WriteLine($"It is {suv1.OffRoadCapability} that this vehicle is off-road capable.");
+                    //ICompany
+                    Console.WriteLine($"It is {suv1.Logo} that this vehicle was made in {suv1.Origin}.");
+                   
+                    Console.WriteLine("X-------------------------------------------------X\n");
+                }
+                if (vehiclesList[i].Validation == 3)
+                {
+                    //IVehicle
+                    Console.WriteLine($"This is a {vehiclesList[i].Year} {vehiclesList[i].Make} {vehiclesList[i].Model}");
+                    Console.WriteLine($"It is {vehiclesList[i].RunsOfGasoline} that this vehicle gets {vehiclesList[i].Mpg}MPG.");
+                    Console.WriteLine($"It has {vehiclesList[i].NumberOfDoors} doors and {vehiclesList[i].NumberOfWheels} wheels.");
+                    //Truck Class
+                    Console.WriteLine($"It is {truck1.CanTow} this vehicle can tow.");
+                    Console.WriteLine($"This vehicle's bed size is {truck1.BedSize}.");
+                    //ICompany
+                    Console.WriteLine($"It is {truck1.Logo} that this vehicle was made in {truck1.Origin}.");
+                   
+                    Console.WriteLine("X-------------------------------------------------X\n");
+                }
+            }
+
+
 
         }
     }
